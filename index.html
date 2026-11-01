@@ -3,418 +3,402 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>k8nvas — Kubernetes Workstation</title>
+<title>k8nvas — Agentic Kubernetes Workstation · Coming Soon</title>
+<meta name="description" content="k8nvas is the agentic Kubernetes workstation. Design on a visual canvas, deploy to AWS, GCP or Azure, migrate between clouds in one step — while AI agents operate your clusters."/>
+<meta property="og:title" content="k8nvas — Never get paged for Kubernetes again"/>
+<meta property="og:description" content="The agentic Kubernetes workstation. Coming soon."/>
+<meta name="theme-color" content="#ffffff"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Code:wght@400;500&display=swap" rel="stylesheet">
 <link href="style.css" rel="stylesheet"/>
+<script>document.documentElement.classList.add('js')</script>
 <link rel="icon" type="image/png" href="logo/k8nvas.png">
 </head>
 <body>
 
-<div id="cur"></div>
-<div id="ring"></div>
-
-<!-- NAV -->
-<nav>
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="logo">
-      <div>
-        <img src="logo/k8nvas-logo.png" width="100"/>
-      </div>
+    <a href="#top" class="brand" aria-label="k8nvas home">
+      <img src="logo/k8nvas-logo.png" alt="k8nvas" width="96" height="32"/>
     </a>
-    <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#platform">Platform</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#agents">Agents</a>
+      <a href="#canvas">Canvas</a>
+      <a href="#migrate">Migration</a>
       <a href="#enterprise">Enterprise</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#docs">Docs</a>
-    </div>
-    <div class="nav-actions">
-      <a href="#" class="n-ghost">Sign In</a>
-      <a href="#" class="n-cta">Get Started →</a>
+    </nav>
+    <div class="nav-right">
+      <span class="nav-status"><i></i>Private preview</span>
+      <a href="#access" class="btn btn-sm btn-light magnetic">Get early access</a>
     </div>
   </div>
-</nav>
+</header>
 
-<!-- HERO -->
-<div class="hero">
+<main>
+
+<!-- ============ HERO / POSTER ============ -->
+<section class="hero" id="top">
+  <canvas id="field" class="hero-field" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="poster" aria-hidden="true">
+    <i class="crop c-tl"></i><i class="crop c-tr"></i><i class="crop c-bl"></i><i class="crop c-br"></i>
+    <span class="pf pf-tl">N° 001 / AGENTIC K8S</span>
+    <span class="pf pf-tr">EKS — GKE — AKS</span>
+    <span class="pf pf-bl">HALLUCINATE LABS</span>
+    <span class="pf pf-br">EARLY ACCESS <b>OPEN</b></span>
+    <span class="pf-side pf-left">COMING SOON — COMING SOON</span>
+    <span class="pf-side pf-right">COMING SOON — COMING SOON</span>
+  </div>
+
   <div class="hero-inner">
-    
-    <div class="hero-badge"><span class="blink"></span>Now in Public Beta</div>
+    <div class="eyebrow hero-eyebrow"><span class="pulse"></span><span data-scramble>Coming soon</span><span class="sep"></span><span class="eb-long">The agentic Kubernetes workstation</span></div>
 
-    <div class="hero-title">
-        <h1>Kubernetes<br>
-        <span class="blue">made easy.</span></h1>
+    <h1 class="hero-title">
+      <span class="line"><span class="line-inner">Never get paged</span></span>
+      <span class="line"><span class="line-inner">for Kubernetes <span class="grad">again.</span></span></span>
+    </h1>
+
+    <p class="hero-sub">Design your stack on a visual canvas. Ship it to AWS, GCP or Azure. Move between clouds in one step. And let AI agents operate, heal and optimise every cluster — around the clock.</p>
+
+    <form class="waitlist hero-form" data-waitlist novalidate>
+      <input type="email" name="email" required placeholder="you@company.com" aria-label="Work email" autocomplete="email"/>
+      <button class="btn btn-primary" type="submit"><span class="btn-label">Request early access</span><span class="arr">→</span></button>
+      <p class="form-msg" role="status" aria-live="polite"></p>
+    </form>
+
+    <ul class="hero-pills">
+      <li><span>01</span>Agentic ops</li>
+      <li><span>02</span>Drag-and-drop canvas</li>
+      <li><span>03</span>One-step migration</li>
+    </ul>
+  </div>
+
+  <!-- floating agent console -->
+  <div class="console" aria-hidden="true">
+    <div class="console-bar">
+      <span class="dots"><i></i><i></i><i></i></span>
+      <span class="console-title">agents — prod-us</span>
+      <span class="console-live"><i></i>live</span>
     </div>
-    <p class="hero-sub">A visual workstation that brings your entire cluster into one canvas — designed for startups moving fast and enterprises governing at scale.</p>
-    <div class="hero-btns">
-      <a href="#" class="btn-primary">Start Free — No Card</a>
-      <a href="#" class="btn-ghost">See a Demo →</a>
-    </div>
-    <p class="hero-note">Free forever on Starter · 14-day trial on Pro</p>
-    <div class="hero-stats">
-      <div class="hs-item">
-        <div class="hs-num" data-target="500" data-suffix="+">0</div>
-        <div class="hs-label">Clusters managed</div>
-      </div>
-      <div class="hs-item">
-        <div class="hs-num" data-target="40" data-suffix="%">0</div>
-        <div class="hs-label">Avg cost reduction</div>
-      </div>
-      <div class="hs-item">
-        <div class="hs-num" data-target="99" data-suffix="%">0</div>
-        <div class="hs-label">Agent uptime SLA</div>
-      </div>
-      <div class="hs-item">
-        <div class="hs-num" data-target="10" data-suffix="×">0</div>
-        <div class="hs-label">Faster triage</div>
-      </div>
+    <div class="console-body" id="consoleBody"></div>
+  </div>
+
+  <div class="hero-word" aria-hidden="true">
+    <span>k</span><span>8</span><span>n</span><span>v</span><span>a</span><span>s</span>
+  </div>
+
+  <a href="#manifesto" class="scroll-cue" aria-label="Scroll"><span></span></a>
+</section>
+
+<!-- ============ WORKS WITH ============ -->
+<section class="stack">
+  <p class="stack-label">Built for the infrastructure you already run</p>
+  <div class="stack-marquee">
+    <div class="stack-track">
+      <span>Amazon EKS</span><span>Google GKE</span><span>Azure AKS</span><span>DigitalOcean</span><span>k3s</span><span>Bare metal</span><span>Helm</span><span>Argo CD</span><span>Flux</span><span>Terraform</span><span>Prometheus</span><span>OPA Gatekeeper</span><span>Istio</span><span>Karpenter</span>
     </div>
   </div>
-</div>
+</section>
 
-<!-- TICKER -->
-<div class="ticker-section">
-    <p class="ticker-label">Trusted by engineering teams at</p>
-  <div class="ticker-track">
-    <div class="ti">Stripe</div>
-    <div class="ti">Notion</div>
-    <div class="ti">Linear</div>
-    <div class="ti">Railway</div>
-    <div class="ti">Supabase</div>
-    <div class="ti">Resend</div>
-    <div class="ti">PlanetScale</div>
-    <div class="ti">Turso</div>
-    <div class="ti">Neon</div>
-    <div class="ti">Dub.co</div>
-    <div class="ti">Trigger.dev</div>
-    <div class="ti">Vercel</div>
-    <div class="ti">Stripe</div>
-    <div class="ti">Notion</div>
-    <div class="ti">Linear</div>
-    <div class="ti">Railway</div>
-    <div class="ti">Supabase</div>
-    <div class="ti">Resend</div>
-    <div class="ti">PlanetScale</div>
-    <div class="ti">Turso</div>
-    <div class="ti">Neon</div>
-    <div class="ti">Dub.co</div>
-    <div class="ti">Trigger.dev</div>
-  </div>
-</div>
-
-<!-- FEATURES -->
-<div class="section" id="features">
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto" id="manifesto">
   <div class="wrap">
-    <div class="features-header rv">
-      <div class="left">
-        <div class="section-tag">Ship Faster</div>
-        <h2>Your second pair of eyes<br>on every cluster.</h2>
-      </div>
-      <div class="right">
-        <p>k8nvas brings visual clarity, deep diagnostics, and team-wide observability to Kubernetes — without the YAML overload.</p>
-      </div>
-    </div>
-    <div class="feat-grid rv">
-      <div class="feat-card">
-        <div class="feat-num">01</div>
-        <h3>Visual Canvas</h3>
-        <p>Real-time drag-and-drop view of all pods, deployments, and services across every namespace.</p>
-        <span class="feat-arrow">↗</span>
-      </div>
-      <div class="feat-card">
-        <div class="feat-num">02</div>
-        <h3>Smart Anomaly Detection</h3>
-        <p>AI surfaces misconfigurations, OOM events, and cascading failures before they page you.</p>
-        <span class="feat-arrow">↗</span>
-      </div>
-      <div class="feat-card">
-        <div class="feat-num">03</div>
-        <h3>RBAC & Policy Engine</h3>
-        <p>Fine-grained access control with policy templates and full audit logs for every action.</p>
-        <span class="feat-arrow">↗</span>
-      </div>
-      <div class="feat-card">
-        <div class="feat-num">04</div>
-        <h3>GitOps Native</h3>
-        <p>Deploy from GitHub, GitLab, or Bitbucket. Trigger rollouts on PR merge or tag push.</p>
-        <span class="feat-arrow">↗</span>
-      </div>
-      <div class="feat-card">
-        <div class="feat-num">05</div>
-        <h3>Cost Intelligence</h3>
-        <p>Per-namespace cost breakdown with right-sizing recommendations that actually save money.</p>
-        <span class="feat-arrow">↗</span>
-      </div>
-      <div class="feat-card">
-        <div class="feat-num">06</div>
-        <h3>Multi-Cloud Control Plane</h3>
-        <p>EKS, GKE, AKS, and on-prem — all from one unified workspace.</p>
-        <span class="feat-arrow">↗</span>
-      </div>
-    </div>
+    <div class="tag"><span class="tag-dot"></span>Why k8nvas</div>
+    <p class="manifesto-text" data-words>Kubernetes gave us infinite scale. It also gave us 3&nbsp;a.m. pages, ten-thousand-line YAML files, cloud lock-in and a bill nobody can explain. k8nvas hands the toil to agents — so your engineers get back to shipping.</p>
   </div>
-</div>
+</section>
 
-<!-- SPLIT: PLATFORM -->
-<div class="section" id="platform">
+<!-- ============ AGENTS ============ -->
+<section class="section agents" id="agents">
   <div class="wrap">
-    <div class="split rv">
-      <div class="split-text">
-        <div class="section-tag">Visual Workstation</div>
-        <h2>Canvas in<br><span class="blue">60 seconds.</span></h2>
-        <p>Install our lightweight Helm agent. Your canvas auto-populates — no configuration, no firewall changes, no YAML expertise required.</p>
-        <div class="step-list">
-          <div class="step">
-            <span class="step-n">01</span>
-            <div><h4>Connect in one Helm command</h4><p>No VPN. No port forwarding. Runs securely inside your cluster.</p></div>
-          </div>
-          <div class="step">
-            <span class="step-n">02</span>
-            <div><h4>Canvas auto-populates</h4><p>Workloads, services, ingresses laid out automatically in under a minute.</p></div>
-          </div>
-          <div class="step">
-            <span class="step-n">03</span>
-            <div><h4>Collaborate in real time</h4><p>Multiple engineers on the same canvas, annotating and acting together.</p></div>
-          </div>
-        </div>
+    <div class="sec-head">
+      <div>
+        <div class="tag"><span class="tag-dot"></span>01 — Agentic operations</div>
+        <h2 class="reveal">A team of AI agents,<br><em class="serif">on call</em> for every cluster.</h2>
       </div>
-      <div class="code-pane rv d2">
-        <div class="cp-bar">
-          <div class="cp-dot"></div><div class="cp-dot"></div><div class="cp-dot"></div>
-          <span class="cp-title">k8nvas — helm install</span>
+      <p class="reveal">Each agent owns one job, works from your policies and proposes every change as a reviewable plan. Approve each step — or let it run on autopilot inside the guardrails you set.</p>
+    </div>
+
+    <div class="agent-grid">
+      <article class="agent-card spot">
+        <div class="ag-top"><span class="ag-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><path d="M10 6.5h4a3 3 0 0 1 3 3V14"/></svg>
+        </span><span class="ag-state"><i></i>ready</span></div>
+        <h3>Architect</h3>
+        <p>Describe your app in plain English. Architect lays it out on the canvas — deployments, services, ingress, storage and autoscaling, wired correctly.</p>
+        <code class="ag-io">intent → topology</code>
+      </article>
+
+      <article class="agent-card spot">
+        <div class="ag-top"><span class="ag-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h4l2.5-6 5 12 2.5-6h4"/></svg>
+        </span><span class="ag-state"><i></i>watching</span></div>
+        <h3>Healer</h3>
+        <p>Reads events, logs and metrics. Catches CrashLoopBackOff, OOMKills and bad rollouts, then rolls back or patches before anyone gets paged.</p>
+        <code class="ag-io">incident → resolved</code>
+      </article>
+
+      <article class="agent-card spot">
+        <div class="ag-top"><span class="ag-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
+        </span><span class="ag-state"><i></i>analysing</span></div>
+        <h3>Optimizer</h3>
+        <p>Right-sizes requests, bin-packs nodes and moves to spot capacity where it is safe. Every saving is shown to you before it is applied.</p>
+        <code class="ag-io">waste → savings</code>
+      </article>
+
+      <article class="agent-card spot">
+        <div class="ag-top"><span class="ag-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+        </span><span class="ag-state"><i></i>enforcing</span></div>
+        <h3>Guardian</h3>
+        <p>Turns plain-English rules into OPA policies, audits images and RBAC, and blocks risky deploys at the gate — not after the incident.</p>
+        <code class="ag-io">policy → enforced</code>
+      </article>
+
+      <article class="agent-card spot">
+        <div class="ag-top"><span class="ag-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg>
+        </span><span class="ag-state"><i></i>standby</span></div>
+        <h3>Migrator</h3>
+        <p>Translates workloads, volumes, IAM and networking between AWS, GCP and Azure, replicates data and cuts traffic over cleanly.</p>
+        <code class="ag-io">cloud → cloud</code>
+      </article>
+
+      <article class="agent-card agent-human spot">
+        <div class="ag-top"><span class="ag-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+        </span><span class="ag-state is-you"><i></i>you</span></div>
+        <h3>You, in the loop</h3>
+        <p>Every action is a plan you can read, diff, approve or roll back. Scope what each agent may touch, per namespace. Full audit trail, always.</p>
+        <code class="ag-io">plan → approve</code>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CANVAS (pinned) ============ -->
+<section class="section canvas-sec" id="canvas">
+  <div class="pin-wrap" id="canvasPin">
+    <div class="wrap">
+      <div class="sec-head compact">
+        <div>
+          <div class="tag"><span class="tag-dot"></span>02 — Visual canvas</div>
+          <h2>Drag. Drop. <em class="serif">Deploy.</em></h2>
         </div>
-        <div class="cp-body">
-          <div><span class="cc"># Add k8nvas chart repo</span></div>
-          <div><span style="color:var(--ink);font-weight:500">helm</span> repo add k8nvas https://charts.k8nvas.io</div>
-          <div>&nbsp;</div>
-          <div><span style="color:var(--ink);font-weight:500">helm</span> install k8nvas k8nvas/agent \</div>
-          <span class="chl"><div>&nbsp;&nbsp;--set <span class="ck">clusterName</span>=<span class="cs">"production-us"</span> \</div></span>
-          <span class="chl"><div>&nbsp;&nbsp;--set <span class="ck">apiKey</span>=<span class="cs">$K8NVAS_KEY</span> \</div></span>
-          <span class="chl"><div>&nbsp;&nbsp;-n kube-system</div></span>
-          <div>&nbsp;</div>
-          <div><span class="co">✓</span> Agent deployed to kube-system</div>
-          <div><span class="co">✓</span> 6 namespaces · 48 pods discovered</div>
-          <div><span class="co">✓</span> Canvas ready · 2 anomalies flagged<span class="ccur"></span></div>
+        <p>Build the whole stack on a canvas — or just ask the Architect. k8nvas writes clean, versioned manifests underneath and ships them to whichever cloud you pick.</p>
+      </div>
+
+      <div class="app" id="app">
+        <div class="app-bar">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span class="crumb">workspace <b>/</b> prod-us <b>/</b> <em>checkout</em></span>
+          <div class="target" role="presentation">
+            <span class="target-ind"></span>
+            <span class="t-opt" data-t="0">AWS</span><span class="t-opt" data-t="1">GCP</span><span class="t-opt" data-t="2">Azure</span>
+          </div>
+          <span class="app-deploy">Deploy</span>
         </div>
-        <div class="code-tags">
-          <span class="ctag">EKS</span><span class="ctag">GKE</span><span class="ctag">AKS</span><span class="ctag">ON-PREM</span><span class="ctag act">+ Connect Cluster</span>
+
+        <div class="app-body">
+          <aside class="palette">
+            <p class="pal-h">Resources</p>
+            <span class="pal-i"><i class="k k-ing"></i>Ingress</span>
+            <span class="pal-i"><i class="k k-svc"></i>Service</span>
+            <span class="pal-i"><i class="k k-dep"></i>Deployment</span>
+            <span class="pal-i"><i class="k k-sts"></i>StatefulSet</span>
+            <span class="pal-i"><i class="k k-hpa"></i>Autoscaler</span>
+            <span class="pal-i"><i class="k k-cm"></i>ConfigMap</span>
+            <span class="pal-i"><i class="k k-sec"></i>Secret</span>
+            <span class="pal-i"><i class="k k-pvc"></i>Volume</span>
+          </aside>
+
+          <div class="board" id="board">
+            <div class="prompt">
+              <span class="spark">✦</span>
+              <span class="prompt-text" id="promptText"></span><span class="caret"></span>
+            </div>
+
+            <svg class="edges" id="edges" aria-hidden="true"></svg>
+
+            <div class="node n-ing" data-node="ing" style="--x:3%;--y:54%"><i class="k k-ing"></i><div><b>ingress</b><small>checkout.app</small></div></div>
+            <div class="node n-svc" data-node="svc" style="--x:24%;--y:54%"><i class="k k-svc"></i><div><b>checkout-svc</b><small>ClusterIP :8080</small></div></div>
+            <div class="node n-dep" data-node="dep" style="--x:46%;--y:54%"><i class="k k-dep"></i><div><b>checkout</b><small class="reps"><span></span><span></span><span></span><span></span></small></div></div>
+            <div class="node n-hpa" data-node="hpa" style="--x:46%;--y:24%"><i class="k k-hpa"></i><div><b>hpa</b><small>3 → 20 pods</small></div></div>
+            <div class="node n-redis" data-node="redis" style="--x:72%;--y:30%"><i class="k k-sts"></i><div><b>redis</b><small>cache · 1Gi</small></div></div>
+            <div class="node n-pg" data-node="pg" style="--x:72%;--y:78%"><i class="k k-sts"></i><div><b>postgres</b><small>primary · 50Gi</small></div></div>
+
+            <div class="drag-ghost" id="dragGhost"><i class="k k-sec"></i>Secret</div>
+          </div>
+
+          <aside class="yaml">
+            <p class="pal-h">manifest.yaml <span class="ok">valid</span></p>
+            <pre id="yaml"><span class="yl"><b>apiVersion:</b> apps/v1</span>
+<span class="yl"><b>kind:</b> Deployment</span>
+<span class="yl"><b>metadata:</b></span>
+<span class="yl">  <b>name:</b> checkout</span>
+<span class="yl"><b>spec:</b></span>
+<span class="yl">  <b>replicas:</b> <i>3</i></span>
+<span class="yl">  <b>template:</b></span>
+<span class="yl">    <b>spec:</b></span>
+<span class="yl">      <b>containers:</b></span>
+<span class="yl">      - <b>name:</b> api</span>
+<span class="yl">        <b>image:</b> checkout:2.4.1</span>
+<span class="yl">        <b>resources:</b></span>
+<span class="yl">          <b>limits:</b> {cpu: <i>500m</i>}</span>
+<span class="yl">---</span>
+<span class="yl"><b>kind:</b> HorizontalPodAutoscaler</span>
+<span class="yl">  <b>maxReplicas:</b> <i>20</i></span></pre>
+          </aside>
+        </div>
+
+        <div class="app-foot">
+          <span class="af-l"><i></i><span id="footText">Waiting for intent…</span></span>
+          <span class="af-r">6 resources · GitOps synced</span>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- MARQUEE -->
-<div class="marquee-section">
-  <div class="mq-track">
-    <span class="mw">Deploy</span><span class="mq-sep"></span>
-    <span class="mw filled">Observe</span><span class="mq-sep"></span>
-    <span class="mw">Scale</span><span class="mq-sep"></span>
-    <span class="mw filled">Govern</span><span class="mq-sep"></span>
-    <span class="mw">Ship</span><span class="mq-sep"></span>
-    <span class="mw filled">Repeat</span><span class="mq-sep"></span>
-    <span class="mw">Deploy</span><span class="mq-sep"></span>
-    <span class="mw filled">Observe</span><span class="mq-sep"></span>
-    <span class="mw">Scale</span><span class="mq-sep"></span>
-    <span class="mw filled">Govern</span><span class="mq-sep"></span>
-    <span class="mw">Ship</span><span class="mq-sep"></span>
-    <span class="mw filled">Repeat</span>
-  </div>
-</div>
+<!-- ============ MIGRATION (pinned) ============ -->
+<section class="section migrate-sec" id="migrate">
+  <div class="pin-wrap" id="migratePin">
+    <div class="wrap mig-grid">
+      <div class="mig-text">
+        <div class="tag"><span class="tag-dot"></span>03 — One-step migration</div>
+        <h2>Switch clouds<br><em class="serif">in one step.</em></h2>
+        <p>Move a running cluster from AWS to GCP or Azure — workloads, volumes, secrets, IAM and DNS included. The Migrator plans it, you approve it, traffic cuts over without downtime.</p>
 
-<!-- SPLIT: POLICIES (flipped) -->
-<div class="section">
-  <div class="wrap">
-    <div class="split flip rv">
-      <div class="split-text">
-        <div class="section-tag">Policy Engine</div>
-        <h2>Your cluster,<br><span class="blue">your rules.</span></h2>
-        <p>Write guardrails in plain English. k8nvas converts them to OPA/Gatekeeper policies and enforces them across every namespace, every deploy.</p>
-        <div class="step-list">
-          <div class="step">
-            <span class="step-n">01</span>
-            <div><h4>Write policies in plain language</h4><p>"No container should run as root" — automatically converted to OPA policy.</p></div>
-          </div>
-          <div class="step">
-            <span class="step-n">02</span>
-            <div><h4>Scope to namespaces or teams</h4><p>Apply different rules to staging vs production, per team or label selector.</p></div>
-          </div>
-          <div class="step">
-            <span class="step-n">03</span>
-            <div><h4>Track compliance over time</h4><p>See which policies fire, which workloads violate them, and who fixed it.</p></div>
-          </div>
-        </div>
+        <div class="cmd"><span class="cmd-p">$</span> k8nvas migrate <span class="cmd-f">--from</span> aws/eks/prod-us <span class="cmd-f">--to</span> gcp/gke/prod-us</div>
+
+        <ol class="steps" id="migSteps">
+          <li><span class="st-n">01</span><div><b>Discover</b><small>Inventory every resource, dependency and volume</small></div></li>
+          <li><span class="st-n">02</span><div><b>Translate</b><small>Map storage, load balancers and IAM to the target cloud</small></div></li>
+          <li><span class="st-n">03</span><div><b>Replicate</b><small>Stream data and warm the target cluster</small></div></li>
+          <li><span class="st-n">04</span><div><b>Cut over</b><small>Shift traffic gradually, roll back in one click</small></div></li>
+        </ol>
       </div>
-      <div class="code-pane rv d2">
-        <div class="cp-bar">
-          <div class="cp-dot"></div><div class="cp-dot"></div><div class="cp-dot"></div>
-          <span class="cp-title">Policy Editor</span>
+
+      <div class="mig-vis">
+        <div class="clouds">
+          <div class="cloud c-src">
+            <div class="cl-h"><span class="cl-badge">SOURCE</span><b>AWS</b><small>EKS · us-east-1</small></div>
+            <div class="chips">
+              <span class="chip">api</span><span class="chip">web</span><span class="chip">worker</span>
+              <span class="chip">postgres</span><span class="chip">redis</span><span class="chip">secrets</span>
+            </div>
+          </div>
+
+          <div class="wire" aria-hidden="true">
+            <svg viewBox="0 0 100 40" preserveAspectRatio="none"><path id="wirePath" d="M0 20 C 30 20, 70 20, 100 20"/></svg>
+            <span class="pkt"></span><span class="pkt"></span><span class="pkt"></span>
+          </div>
+
+          <div class="cloud c-dst">
+            <div class="cl-h"><span class="cl-badge t">TARGET</span><b>Google Cloud</b><small>GKE · us-central1</small></div>
+            <div class="chips">
+              <span class="chip">api</span><span class="chip">web</span><span class="chip">worker</span>
+              <span class="chip">postgres</span><span class="chip">redis</span><span class="chip">secrets</span>
+            </div>
+          </div>
         </div>
-        <div class="cp-body">
-          <div><span class="cc">// Plain English rule</span></div>
-          <div style="background:rgba(20,70,245,.04);border-left:2px solid var(--blue);margin:0 -24px;padding:8px 24px;color:var(--ink)">"All production pods must set CPU and memory limits."</div>
-          <div>&nbsp;</div>
-          <div><span class="cc">// Auto-generated OPA policy</span></div>
-          <div><span class="ck">deny</span> [msg] {</div>
-          <div>&nbsp;&nbsp;container := input.review.object.spec<span class="cc">...</span></div>
-          <div>&nbsp;&nbsp;<span class="ck">not</span> container.resources.limits</div>
-          <div>&nbsp;&nbsp;msg := sprintf(<span class="cs">"missing limits: %v"</span>, [name])</div>
-          <div>}</div>
-          <div>&nbsp;</div>
-          <div><span class="co">●</span> Active — enforcing in: production, staging</div>
-          <div style="color:var(--light)">3 violations blocked · 0 bypasses this week<span class="ccur"></span></div>
+
+        <div class="map">
+          <p class="map-h">Translation map</p>
+          <div class="map-row"><span>gp3 volume</span><i>→</i><span>pd-balanced</span></div>
+          <div class="map-row"><span>ALB ingress</span><i>→</i><span>Cloud Load Balancer</span></div>
+          <div class="map-row"><span>IRSA roles</span><i>→</i><span>Workload Identity</span></div>
+          <div class="map-row"><span>Secrets Manager</span><i>→</i><span>Secret Manager</span></div>
+          <div class="map-row"><span>Route 53</span><i>→</i><span>Cloud DNS</span></div>
         </div>
+
+        <div class="mig-stats">
+          <div><b data-count="148">0</b><small>resources translated</small></div>
+          <div><b data-count="100" data-suffix="%">0%</b><small>data replicated</small></div>
+          <div><b class="zero">0s</b><small>downtime</small></div>
+        </div>
+        <div class="mig-bar"><span id="migBar"></span></div>
+        <p class="mig-also">Also supported: AWS ⇄ Azure · GCP ⇄ Azure · cloud ⇄ on-prem</p>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ENTERPRISE -->
-<div class="section" id="enterprise">
+<!-- ============ THE SHIFT ============ -->
+<section class="section shift">
   <div class="wrap">
-    <div class="rv" style="text-align:center;margin-bottom:56px">
-      <div class="section-tag" style="justify-content:center;display:flex">Built for every stage</div>
-      <h2>From your first cluster<br>to your <span class="blue">thousandth.</span></h2>
+    <div class="sec-head center">
+      <div>
+        <div class="tag"><span class="tag-dot"></span>The shift</div>
+        <h2 class="reveal">Stop operating Kubernetes.<br><em class="serif">Start directing it.</em></h2>
+      </div>
+    </div>
+    <div class="shift-table">
+      <div class="shift-head"><span>The old way</span><span>With k8nvas</span></div>
+      <div class="shift-row"><p class="old"><s>Hand-written YAML, copy-pasted between repos</s></p><span>A visual canvas with generated, versioned manifests</span></div>
+      <div class="shift-row"><p class="old"><s>A 3 a.m. page for every CrashLoopBackOff</s></p><span>Healer resolves it — you read the summary over coffee</span></div>
+      <div class="shift-row"><p class="old"><s>Locked into one cloud provider</s></p><span>Move clusters between clouds in a single step</span></div>
+      <div class="shift-row"><p class="old"><s>Over-provisioned nodes and surprise bills</s></p><span>Optimizer right-sizes continuously, with your approval</span></div>
+      <div class="shift-row"><p class="old"><s>Policy docs nobody reads</s></p><span>Guardian enforces your rules at deploy time</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENTERPRISE ============ -->
+<section class="section enterprise" id="enterprise">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="tag"><span class="tag-dot"></span>04 — Enterprise</div>
+        <h2 class="reveal">Autonomy, with<br><em class="serif">guardrails built in.</em></h2>
+      </div>
+      <p class="reveal">Agents only act inside the boundaries you define. Your workloads, data and credentials stay in your cloud.</p>
     </div>
     <div class="ent-grid">
-      <div class="ent-card rv">
-        <div class="ent-idx">01 / Startups</div>
-        <h3>Move fast without breaking clusters.</h3>
-        <p>Ship infrastructure changes with confidence. k8nvas gives small teams the visibility of a platform team without the headcount.</p>
-        <ul class="ent-list">
-          <li>Canvas view in under 60s</li>
-          <li>Anomaly detection from day one</li>
-          <li>GitOps out of the box</li>
-          <li>Free forever on Starter</li>
-        </ul>
-      </div>
-      <div class="ent-card rv d2">
-        <div class="ent-idx">02 / Scale-ups</div>
-        <h3>One control plane as you grow.</h3>
-        <p>As your cluster count grows, k8nvas scales with you — multi-region, multi-cloud, multiple teams on one workspace.</p>
-        <ul class="ent-list">
-          <li>Multi-cluster, single canvas</li>
-          <li>Team RBAC and namespacing</li>
-          <li>Cost intelligence per team</li>
-          <li>Slack & PagerDuty alerts</li>
-        </ul>
-      </div>
-      <div class="ent-card rv d4">
-        <div class="ent-idx">03 / Enterprise</div>
-        <h3>Govern at scale without the toil.</h3>
-        <p>Fine-grained policy enforcement, SSO, audit trails, and dedicated support for teams that can't afford downtime.</p>
-        <ul class="ent-list">
-          <li>OPA/Gatekeeper policies</li>
-          <li>SSO via Okta, Azure AD</li>
-          <li>SOC 2 Type II certified</li>
-          <li>Dedicated SLA & support</li>
-        </ul>
-      </div>
+      <div class="ent spot"><span class="ent-k">01</span><h4>Human-in-the-loop by default</h4><p>Every agent action starts as a plan. Choose per namespace what runs automatically and what waits for approval.</p></div>
+      <div class="ent spot"><span class="ent-k">02</span><h4>Runs inside your VPC</h4><p>A lightweight in-cluster agent with outbound-only connections. No inbound ports, no shared credentials.</p></div>
+      <div class="ent spot"><span class="ent-k">03</span><h4>SSO, SCIM and fine-grained RBAC</h4><p>Okta, Entra ID and Google Workspace. Map teams to clusters, namespaces and agent permissions.</p></div>
+      <div class="ent spot"><span class="ent-k">04</span><h4>Immutable audit trail</h4><p>Who or what changed which resource, why, and what the diff looked like — exportable to your SIEM.</p></div>
+      <div class="ent spot"><span class="ent-k">05</span><h4>Policy as code</h4><p>OPA / Gatekeeper under the hood, written in plain English on top. Versioned in Git with everything else.</p></div>
+      <div class="ent spot"><span class="ent-k">06</span><h4>Multi-cloud, single pane</h4><p>EKS, GKE, AKS and on-prem clusters in one workspace, with one canvas and one set of policies.</p></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- CTA -->
-<div class="section">
-  <div class="wrap">
-    <div class="cta-box rv">
-      <div class="section-tag" style="justify-content:center;display:flex">Get started</div>
-      <h2>From zero to canvas<br>in <span class="blue">under a minute.</span></h2>
-      <p>No YAML expertise required. Free for startups, built for enterprises. Connect your first cluster in under 60 seconds.</p>
-      <div class="cta-btns">
-        <a href="#" class="btn-primary">Start For Free →</a>
-        <a href="#" class="btn-ghost">Talk to Sales</a>
-      
-    </div>
-        <p class="cta-fine">Free forever on Starter · SOC 2 Certified · GDPR Ready</p>
-    </div>
+<!-- ============ FINAL CTA ============ -->
+<section class="final" id="access">
+  <div class="final-marquee" aria-hidden="true">
+    <div class="fm-track"><span>Coming soon</span><span>Agentic K8s</span><span>Coming soon</span><span>Agentic K8s</span><span>Coming soon</span><span>Agentic K8s</span></div>
   </div>
-</div>
+  <div class="wrap final-inner">
+    <div class="tag center-tag"><span class="tag-dot"></span>Private preview</div>
+    <h2 class="final-title">The way you run Kubernetes<br>is about to <em class="serif grad-serif">change.</em></h2>
+    <p class="final-sub">We're onboarding design partners in waves. Join the list and help shape the first agentic Kubernetes workstation.</p>
+    <form class="waitlist" data-waitlist novalidate>
+      <input type="email" name="email" required placeholder="you@company.com" aria-label="Work email" autocomplete="email"/>
+      <button class="btn btn-primary" type="submit"><span class="btn-label">Join the waitlist</span><span class="arr">→</span></button>
+      <p class="form-msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <a href="#" class="logo">
-        <div>
-            <img src="logo/k8nvas-logo.png" width="100"/>
-        </div>
-        </a>
-      <p>A Kubernetes workstation designed for startups and enterprises who ship fast without losing control.</p>
-    </div>
-    <div class="foot-col">
-      <h4>Product</h4>
-      <a href="#">Features</a><a href="#">Pricing</a><a href="#">Changelog</a><a href="#">Roadmap</a>
-    </div>
-    <div class="foot-col">
-      <h4>Resources</h4>
-      <a href="#">Documentation</a><a href="#">Blog</a><a href="#">Guides</a><a href="#">Status</a>
-    </div>
-    <div class="foot-col">
-      <h4>Company</h4>
-      <a href="#">About</a><a href="#">Careers</a><a href="#">Security</a><a href="#">Contact</a>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    <span>© 2026 Hallucinate Labs Pvt. Ltd. All rights reserved.</span>
-    <span>Privacy · Terms · Security</span>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <img src="logo/k8nvas-logo.png" alt="k8nvas" width="88" height="30" class="foot-logo"/>
+    <span>The agentic Kubernetes workstation.</span>
+    <span class="foot-r">© 2026 Hallucinate Labs Pvt. Ltd.</span>
   </div>
 </footer>
 
-<script>
-// CURSOR
-const cur = document.getElementById('cur'), ring = document.getElementById('ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e => {
-  mx=e.clientX; my=e.clientY;
-  cur.style.left=mx+'px'; cur.style.top=my+'px';
-});
-(function loop(){
-  rx += (mx-rx)*.12; ry += (my-ry)*.12;
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
-  requestAnimationFrame(loop);
-})();
-
-// SCROLL REVEAL
-const obs = new IntersectionObserver(entries => {
-  entries.forEach((e,i) => {
-    if(e.isIntersecting){
-      setTimeout(() => e.target.classList.add('show'), i * 60);
-      obs.unobserve(e.target);
-    }
-  });
-}, { threshold: .08 });
-document.querySelectorAll('.rv').forEach(el => obs.observe(el));
-
-/// COUNTERS
-function count(el, target, suffix) {
-  const dur = 1600;
-  const start = performance.now();
-  function step(ts) {
-    const p = Math.min((ts - start) / dur, 1);
-    const ease = 1 - Math.pow(1 - p, 4);
-    el.textContent = Math.round(ease * target) + (p >= 1 ? suffix : '');
-    if (p < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-const co = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const target = +e.target.dataset.target;
-      const suffix = e.target.dataset.suffix || '';
-      count(e.target, target, suffix);
-      co.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('[data-target]').forEach(el => co.observe(el));
-
-// NAV scroll shadow
-window.addEventListener('scroll', () => {
-  document.querySelector('nav').style.borderBottomColor = scrollY > 10 ? '#e0e0e0' : '#e8e8e8';
-});
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
